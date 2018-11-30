@@ -1,0 +1,5 @@
+name: General Module
+description: General Module
+package: Custom
+type: module
+core: 8.x

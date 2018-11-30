@@ -1,0 +1,14 @@
+<?php
+use \Drupal\views\ViewExecutable;
+
+function general_settings_views_pre_build(ViewExecutable $view) {
+
+ 
+  if ($view->id() == 'article_api' && $view->current_display == 'rest_export_3') {
+	$filters = $view->getExposedInput();
+	$filters['published_at_from'] = $filters['published_at'].' 00:00:00';
+	$filters['published_at_to'] = $filters['published_at'].' 23:59:59';
+	$view->setExposedInput($filters);
+  } 
+
+}
